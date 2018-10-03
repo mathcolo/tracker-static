@@ -1,0 +1,13 @@
+# Distributable
+dist
+
+# Files built when testing
+specs/spec-bundle.js
+
+# Logs
+logs
+*.log
+*.log.*
+
+# dependencies
+node_modules
