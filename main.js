@@ -3,14 +3,22 @@ require("babel-polyfill")
 
 window.engine = {}
 const app = new Tram({
+  defaultRoute: '/',
   webEngine: window.engine
 })
 
-app.addRoute('/', require('./pages/home'))
-app.addRoute('/404', require('./pages/404'))
+const route = Tram.route()
 
-app.addRoute('/privacy', require('./pages/privacy'))
-app.addRoute('/opensource', require('./pages/opensource'))
-app.addActions({ update: require('./actions/update')})
+app.addRoute('/', require('./pages/wrapper'), [
+  route('/', require('./pages/home')),
+  route('/:color', require('./pages/home')),
+  route('/privacy', require('./pages/privacy')),
+  route('/opensource', require('./pages/opensource')),
+])
+
+app.addActions({
+  pull: require('./actions/pull'),
+  trains: require('./actions/trains')
+})
 
 app.start('.main')

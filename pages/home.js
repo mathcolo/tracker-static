@@ -12,27 +12,22 @@ const colors = {
   'blue' : '#003da5'
 }
 
-const download = (store, actions) => {
-  if(store.update.Red.length == 0) {
-    fetch('/puller/status').then((resp) => resp.json())
-    .then((resp) => {
-      actions.setData(resp);
-    });
-    
-  }
-};
+const capitalize = (string) => string.split('').slice(0,1).join('').toUpperCase()+string.split('').slice(1).join('').toLowerCase()
 
-module.exports = (store, actions) => {
-  download(store, actions);
+module.exports = (store, actions, params) => {
+  // if we haven't started pulling data, do so now
+  if (store.pull === 'NOT_PULLED') {
+    actions.startPulling()
+  }
+
+  const lines = (params.color ? [params.color] : ['green', 'orange', 'red', /* 'blue' */])
+    .map(color => html`<line-status line='${capitalize(color)}' color='${colors[color]}' />`)
 
   return html`
     <div>
       <!--<sms-signup />-->
       <div class="columns">
-        <line-status line='Green' color='${colors.green}' />
-        <line-status line='Orange' color='${colors.orange}' />
-        <line-status line='Red' color='${colors.red}' />
-        <!--<line-status line='Blue' color='${colors.blue}' style='height: 150px;' />-->
+        ${lines}
       </div>
     </div>
   `

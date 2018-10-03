@@ -12,17 +12,14 @@ const nl_status = (status) => {
     }
 }
 
-const space = '';
-
 module.exports = (attrs) => {
 
     const store = window.engine.store;
     // const actions = window.engine.actions;
-    
+
     if(attrs.line == 'Blue') {
         return html`<div>No new trains expected on the Blue Line.</div>`
     }
-
 
     const renderEntry = (entry) => {
         const words = `${entry.cars[0]}${nl_status(entry.status)} ${entry.stop_name}`;
@@ -30,8 +27,8 @@ module.exports = (attrs) => {
     };
     const nothingNew = html`<div>No new trains on this line, yet.</div>`;
 
-    const data = store.update[attrs.line];
+    const data = store.trains[attrs.line];
     const entries = data.length > 0 ? data.map(renderEntry) : nothingNew;
     return html`${entries}`;
-  
+
 }

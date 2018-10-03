@@ -8,7 +8,11 @@ module.exports = {
     hot: true,
     inline: true,
     proxy: {
-      '/puller': 'http://localhost:5000'
+      '/puller/status': {
+        target: 'https://prestonmueller.com/',
+        secure: true,
+        changeOrigin: true
+      }
     }
   },
   mode: process.env.NODE_ENV,

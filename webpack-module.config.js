@@ -1,5 +1,7 @@
 // module config for webpack
-module.exports = (nodeEnv) => ({
+module.exports = (nodeEnv) => nodeEnv === 'development' ?
+{} :
+({
   rules: [
     {
       use: {

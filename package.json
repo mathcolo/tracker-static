@@ -16,7 +16,7 @@
     "babel-loader": "^8.0.4",
     "babel-polyfill": "^6.26.0",
     "jasmine": "^2.8.0",
-    "tram-one": "^7.1.0",
+    "tram-one": "^7.2.1",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.1",
     "webpack-dev-server": "^3.1.8"
