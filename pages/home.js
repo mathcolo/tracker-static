@@ -14,7 +14,7 @@ const colors = {
 
 const download = (store, actions) => {
   if(store.update.Red.length == 0) {
-    fetch('http://localhost:5000/status').then((resp) => resp.json())
+    fetch('/puller/status').then((resp) => resp.json())
     .then((resp) => {
       actions.setData(resp);
     });
