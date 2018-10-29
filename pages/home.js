@@ -12,27 +12,29 @@ const colors = {
   'blue' : '#003da5'
 }
 
-const download = (store, actions) => {
+const download = (store, actions, params) => {
   if(store.update.Red.length == 0) {
     fetch('/puller/status').then((resp) => resp.json())
     .then((resp) => {
       actions.setData(resp);
     });
-    
+
   }
 };
 
-module.exports = (store, actions) => {
+const camelize = name => name.slice(0,1).toUpperCase().concat(name.slice(1))
+
+module.exports = (store, actions, params) => {
   download(store, actions);
+
+  const lines = (params.line ? [params.line] : ['green', 'orange', 'red'])
+    .map(color => html`<line-status line=${camelize(color)} color='${colors[color.toLowerCase()]}' />`)
 
   return html`
     <div>
       <!--<sms-signup />-->
       <div class="columns">
-        <line-status line='Green' color='${colors.green}' />
-        <line-status line='Orange' color='${colors.orange}' />
-        <line-status line='Red' color='${colors.red}' />
-        <!--<line-status line='Blue' color='${colors.blue}' style='height: 150px;' />-->
+        ${lines}
       </div>
     </div>
   `

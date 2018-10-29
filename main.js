@@ -7,6 +7,7 @@ const app = new Tram({
 })
 
 app.addRoute('/', require('./pages/home'))
+app.addRoute('/:line', require('./pages/home'))
 app.addRoute('/404', require('./pages/404'))
 
 app.addRoute('/privacy', require('./pages/privacy'))
