@@ -1,13 +1,18 @@
 const Tram = require('tram-one')
 const html = Tram.html()
 module.exports = (store, actions, params, subroute) => {
+  const nav = (event) => {
+    event.preventDefault()
+    window.history.pushState({}, '', '/')
+  }
+
   return html`
     <div>
       <section class="hero is-primary is-bold">
         <div class="hero-body">
           <div class="container">
-            <h1 class="title">
-              <a href="/">WHERE ARE THE NEW TRAINS IN BOSTON?!</a>
+            <h1 class="title" style="text-align: center;" onclick=${nav}>
+              <a href="/">New Train Locator</a>
             </h1>
           </div>
         </div>

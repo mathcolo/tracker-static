@@ -25,7 +25,6 @@ module.exports = (store, actions, params) => {
 
   return html`
     <div>
-      <!--<sms-signup />-->
       <div class="columns">
         ${lines}
       </div>
