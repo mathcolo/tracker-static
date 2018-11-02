@@ -6,32 +6,38 @@ const nl_status = (status) => {
         case "IN_TRANSIT_TO":
             return " headed to";
         case "INCOMING_AT":
-            return " arriving at";
+            return " at ";
         case "STOPPED_AT":
             return " at ";
     }
 }
 
-const space = '';
+const nl_direction = (direction_id) => {
+    return direction_id? 'northbound' : 'southbound';
+}
 
 module.exports = (attrs) => {
 
     const store = window.engine.store;
-    // const actions = window.engine.actions;
-    
+    const trains = store.update[attrs.line];
+
     if(attrs.line == 'Blue') {
         return html`<div>No new trains expected on the Blue Line.</div>`
     }
 
-
-    const renderEntry = (entry) => {
-        const words = `${entry.cars[0]}${nl_status(entry.status)} ${entry.stop_name}`;
-        return html`<div style='padding-bottom: 3px;'>${words}</div>`;
-    };
     const nothingNew = html`<div>No new trains on this line, yet.</div>`;
 
-    const data = store.update[attrs.line];
-    const entries = data.length > 0 ? data.map(renderEntry) : nothingNew;
-    return html`${entries}`;
+    const trainsNew = trains.filter((train) => train.cars_new_flag);
+    const trainsOld = trains.filter((train) => !train.cars_new_flag);
+
+    const renderEntry = (entry) => {
+            const words = `${nl_status(entry.status)} ${entry.stop_name}`; // ${nl_direction(entry.direction)}
+            const cars = entry.cars.join('-')
+            return html`<div style='padding-bottom: 3px;'><span class="tag ${attrs.line}">${cars}</span>${words}</div>`;
+    };
+    const entries = trainsNew.length? data.map(renderEntry) : nothingNew;
+
+    const otherStats = html`<div style='margin-top: 20px;'>There are also ${trainsOld.length} older cars.</div>`;
+    return html`<div>${entries}${otherStats}</div>`;
   
 }

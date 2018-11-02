@@ -11,6 +11,6 @@ app.addRoute('/404', require('./pages/404'))
 
 app.addRoute('/privacy', require('./pages/privacy'))
 app.addRoute('/opensource', require('./pages/opensource'))
-app.addActions({ update: require('./actions/update')})
+app.addActions({ update: require('./actions/update'), clock: require('./actions/clock')})
 
 app.start('.main')
