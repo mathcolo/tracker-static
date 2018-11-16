@@ -27,6 +27,7 @@ const download = (store, actions) => {
 
 module.exports = (store, actions) => {
   window.setInterval(() => {
+    console.log('Downloading new trains');
     download(store, actions);
   }, 5000);
 
