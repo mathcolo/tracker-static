@@ -1,0 +1,27 @@
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.tag {
+    width: 74px;
+}
+
+.tag.Orange {
+    background-color: #ffba16 !important;
+}
+
+.tag.Red {
+    background-color: #db1a1a !important;
+    color: #fff;
+}
+
+.tag.Green {
+    background-color: #22984b !important;
+    color: #fff;
+    width: 100px;
+}
