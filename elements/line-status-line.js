@@ -21,34 +21,24 @@ module.exports = (attrs) => {
     const store = window.engine.store;
     const trains = store.update[attrs.line];
 
-    console.log('trains is: ', trains);
-
     if(attrs.line == 'Blue') {
         return html`<div>No new trains expected on the Blue Line.</div>`
     }
 
-    const nothingNew = html`<div>No new trains on this line, yet.</div>`;
+    const nothingNew = html`<div>No new trains on this line today.</div>`;
 
     const trainsNew = trains.filter((train) => train.cars_new_flag);
     const trainsOld = trains.filter((train) => !train.cars_new_flag);
 
-    console.log('trainsNew: ', trainsNew);
-    console.log('trainsOld: ', trainsOld);
-
-    console.log('1');
-
     const renderEntry = (entry) => {
-            const words = `${nl_status(entry.status)} ${entry.stop_name}`; // ${nl_direction(entry.direction)}
+            const words = ` ${nl_direction(entry.direction)} ${nl_status(entry.status)} ${entry.stop_name}`; // ${nl_direction(entry.direction)}
             const cars = entry.cars.join('-')
             return html`<div style='padding-bottom: 3px;'><span class="tag ${attrs.line}">${cars}</span>${words}</div>`;
     };
-    console.log('2');
-    const entries = trainsNew.length? data.map(renderEntry) : nothingNew;
-    console.log('3');
-    console.log('trainsOld.length is:', trainsOld.length);
-    console.log('4');
 
-    const otherStats = html`<div style='margin-top: 20px;'>There are also ${trainsOld.length} older cars.</div>`;
+    const entries = trainsNew.length? trainsNew.map(renderEntry) : nothingNew;
+
+    const otherStats = html`<div style='margin-top: 20px;'>There are ${trainsOld.length} older cars on the line.</div>`;
     return html`<div>${entries}${otherStats}</div>`;
   
 }
