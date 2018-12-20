@@ -1,13 +1,9 @@
 module.exports = {
-  init: () => {
-    return {
-      'Red': [],
-      'Orange': [],
-      'Green': [],
-      'Blue': []
-    }
-  },
-  setData: (store, data, actions) => {
-    return data;
+  init: () => {},
+  tick: (store, _, actions) => {
+    fetch('/puller/status').then((resp) => resp.json())
+      .then((resp) => {
+        actions.setData(resp);
+      });
   }
 }

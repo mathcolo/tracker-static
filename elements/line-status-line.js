@@ -19,7 +19,7 @@ const nl_direction = (direction_id) => {
 module.exports = (attrs) => {
 
     const store = window.engine.store;
-    const trains = store.update[attrs.line];
+    const trains = store.data[attrs.line];
 
     if(attrs.line == 'Blue') {
         return html`<div>No new trains expected on the Blue Line.</div>`
@@ -38,7 +38,7 @@ module.exports = (attrs) => {
 
     const entries = trainsNew.length? trainsNew.map(renderEntry) : nothingNew;
 
-    const otherStats = html`<div style='margin-top: 20px;'>There are ${trainsOld.length} older cars on the line.</div>`;
+    const otherStats = html`<div style='margin-top: 20px;'>There are ${trainsOld.length} trips running older cars on the line.</div>`;
     return html`<div>${entries}${otherStats}</div>`;
   
 }

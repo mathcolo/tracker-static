@@ -1,8 +1,8 @@
 const Tram = require('tram-one')
 const html = Tram.html()
 module.exports = (store, actions) => {
-  return html`<div>
-  Bulma:
+  return html`<div style='padding: 10px;'>
+  Bulma CSS framework: <br /><br />
 
     The MIT License (MIT)<br />
     <br />

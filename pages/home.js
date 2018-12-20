@@ -13,31 +13,18 @@ const colors = {
   'blue' : '#003da5'
 }
 
-const download = (store, actions) => {
-  if(store.update.Red.length == 0) {
-    fetch('/puller/status').then((resp) => resp.json())
-    .then((resp) => {
-      actions.setData(resp);
-      actions.setTime();
-    });
-    
-  }
-};
-
-
 module.exports = (store, actions) => {
-  download(store, actions);
-  window.setInterval(() => {
-    download(store, actions);
-  }, 5000);
+  if (store.ticker === null) {
+    actions.startTicking(30000);
+  }
 
   return html`
     <div>
       <!--<sms-signup />-->
       <div class="columns">
-      <line-status line='Green' color='${colors.green}' description='Type 9s' />
-      <line-status line='Orange' color='${colors.orange}' description='1400-1500s' />
-      <line-status line='Red' color='${colors.red}' description='1900-2100s' />
+      <line-status line='Green' color='${colors.green}' description='Type 9s (3900+)' />
+      <line-status line='Orange' color='${colors.orange}' description='#14 (01400+)' />
+      <line-status line='Red' color='${colors.red}' description='#4 (01900+)' />
       <!--<line-status line='Blue' color='${colors.blue}' style='height: 150px;' />-->
       <!--<dash-status />-->
       </div>

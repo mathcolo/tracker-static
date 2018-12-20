@@ -7,6 +7,10 @@ a {
     text-decoration: inherit;
 }
 
+p {
+    margin-top: 4px;
+}
+
 .tag {
     width: 74px;
 }
