@@ -25,7 +25,7 @@ module.exports = (attrs) => {
         return html`<div>No new trains expected on the Blue Line.</div>`
     }
 
-    const nothingNew = html`<div>No new trains on this line today.</div>`;
+    const nothingNew = html`<div>No new trains on this line right now.</div>`;
 
     const trainsNew = trains.filter((train) => train.cars_new_flag);
     const trainsOld = trains.filter((train) => !train.cars_new_flag);
@@ -38,7 +38,7 @@ module.exports = (attrs) => {
 
     const entries = trainsNew.length? trainsNew.map(renderEntry) : nothingNew;
 
-    const otherStats = html`<div style='margin-top: 20px;'>There are ${trainsOld.length} trips running older cars on the line.</div>`;
+    const otherStats = html`<div style='margin-top: 20px;'>There are currently ${trainsOld.length} trips running older cars on the line.</div>`;
     return html`<div>${entries}${otherStats}</div>`;
   
 }
