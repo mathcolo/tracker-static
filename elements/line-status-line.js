@@ -12,8 +12,14 @@ const nl_status = (status) => {
     }
 }
 
-const nl_direction = (direction_id) => {
-    return direction_id? 'northbound' : 'southbound';
+const nl_direction = (direction_id, line_name) => {
+
+    if(line_name === 'Green') {
+        return direction_id? 'eastbound' : 'westbound';
+    }
+    else {
+        return direction_id? 'northbound' : 'southbound';
+    }
 }
 
 module.exports = (attrs) => {
@@ -31,7 +37,7 @@ module.exports = (attrs) => {
     const trainsOld = trains.filter((train) => !train.cars_new_flag);
 
     const renderEntry = (entry) => {
-            const words = ` ${nl_direction(entry.direction)} ${nl_status(entry.status)} ${entry.stop_name}`; // ${nl_direction(entry.direction)}
+            const words = ` ${nl_direction(entry.direction, attrs.line)} ${nl_status(entry.status)} ${entry.stop_name}`; // ${nl_direction(entry.direction)}
             const cars = entry.cars.join('-')
             return html`<div style='padding-bottom: 3px;'><span class="tag ${attrs.line}">${cars}</span>${words}</div>`;
     };
