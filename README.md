@@ -1,4 +1,5 @@
 # tracker-static
+tracker-static is the frontend for [https://newtrains.today](https://newtrains.today). The backend cache service is located [here](https://github.com/mathcolo/tracker-cache).
 
 ## Development instructions
 1. In the root directory, run `npm install` to install all the project dependencies
