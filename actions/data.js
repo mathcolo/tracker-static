@@ -1,14 +1,19 @@
 module.exports = {
     init: () => {
       return {
-        'Red': [],
-        'Orange': [],
-        'Green': [],
-        'Blue': []
+        current: {
+          'Red': [],
+          'Orange': [],
+          'Green': [],
+        },
+        past: {
+          'Red': [],
+          'Orange': [],
+          'Green': [],
+        }
       }
     },
     setData: (store, data, actions) => {
-        console.log('Setting data');
         return data;
     }
 
