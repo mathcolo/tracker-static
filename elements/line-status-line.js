@@ -1,4 +1,4 @@
-const moment = require('moment');
+const formatDistance = require('date-fns/distance_in_words_to_now');
 const Tram = require('tram-one')
 const html = Tram.html()
 
@@ -44,7 +44,7 @@ module.exports = (attrs) => {
     };
     const template_newTrains = trainsNew.length? trainsNew.map(template_trainsNewEntry) : template_nothingNew;
     
-    const template_pastNew = (past.length && !trainsNew.length)? `A new train was last seen on this line ${moment(past[0].seen_end).fromNow()}.` : '';
+    const template_pastNew = (past.length && !trainsNew.length)? `A new train was last seen on this line ${formatDistance(past[0].seen_end, {addSuffix: true})}.` : '';
     const template_oldTrains = html`
     <div style='margin-top: 30px;'>
     ${template_pastNew} There are currently ${trainsOld.length} trips running older cars on the line.

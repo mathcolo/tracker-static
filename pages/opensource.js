@@ -28,30 +28,14 @@ module.exports = (store, actions) => {
     THE SOFTWARE.<br />
     </div>
     <div style='margin-top: 20px;'>
-    Moment.js: <br /><br />
-    Copyright (c) JS Foundation and other contributors<br />
+    date-fns: <br /><br />
+    Copyright © 2019 Sasha Koss<br />
     <br />
-    Permission is hereby granted, free of charge, to any person<br />
-    obtaining a copy of this software and associated documentation<br />
-    files (the "Software"), to deal in the Software without<br />
-    restriction, including without limitation the rights to use,<br />
-    copy, modify, merge, publish, distribute, sublicense, and/or sell<br />
-    copies of the Software, and to permit persons to whom the<br />
-    Software is furnished to do so, subject to the following<br />
-    conditions:<br />
-    <br />
-    The above copyright notice and this permission notice shall be<br />
-    included in all copies or substantial portions of the Software.<br />
-    <br />
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,<br />
-    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES<br />
-    OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND<br />
-    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT<br />
-    HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,<br />
-    WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING<br />
-    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR<br />
-    OTHER DEALINGS IN THE SOFTWARE.<br />
-    <br />
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+<br />
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+<br />
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     </div>
 
   </div>
