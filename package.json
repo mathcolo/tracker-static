@@ -1,25 +1,28 @@
 {
-  "name": "tracker-static",
-  "version": "1.0.0",
-  "scripts": {
-    "start": "NODE_ENV=development webpack-dev-server --open --hot --inline=true",
-    "prebuild": "cp -r ./public/ dist",
-    "build": "NODE_ENV=production webpack",
-    "test": "jasmine ./specs/specs.js"
-  },
-  "keywords": [
-    "tram-one"
-  ],
+  "name": "tracker-static-react",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "@babel/core": "^7.1.2",
-    "@babel/preset-env": "^7.1.0",
-    "babel-loader": "^8.0.4",
-    "babel-polyfill": "^6.26.0",
     "date-fns": "^1.30.1",
-    "jasmine": "^2.8.0",
-    "tram-one": "^7.1.0",
-    "webpack": "^4.20.2",
-    "webpack-cli": "^3.1.1",
-    "webpack-dev-server": "^3.1.14"
-  }
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.1.8"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "proxy": "https://newtrains.today",
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
