@@ -33,7 +33,7 @@ class App extends Component {
 
   componentDidMount() {
     this.download();
-    setInterval(this.download, 30000);
+    setInterval(this.download.bind(this), 30000);
   }
 
   render() {
